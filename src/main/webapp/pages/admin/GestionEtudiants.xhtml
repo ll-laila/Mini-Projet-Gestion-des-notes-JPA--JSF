@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+</h:head>
+<h:body>
+    <div align="left" class="pt-2 pl-2">
+        <h:link outcome="Admin.xhtml" styleClass="btn btn-outline-success" value="Retour"/> |
+        <h:commandLink styleClass="btn btn-outline-danger" value="Logout" action="#{LoginBean.logout()}"  />
+    </div>
+    <f:view>
+        <h2 align="center" class="p-3">Gestion des etudiants</h2><hr/>
+        <div align="center" class="container p-5">
+        <h:form>
+            <h:dataTable id="studentsTable"  value="#{AdminBean.listerEtudiants()}" var="etudiant" styleClass="table table-striped table-bordered tableUpdated">
+                <h:inputHidden id="etudiantId" value="#{AdminBean.etudiant.id}" />
+                <h:column>
+                    <f:facet name="header">NumAplogue</f:facet>
+                    <h:outputText value="#{etudiant.numAplogue}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nom</f:facet>
+                    <h:outputText value="#{etudiant.nom}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Prenom</f:facet>
+                    <h:outputText value="#{etudiant.prenom}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">cne</f:facet>
+                    <h:outputText value="#{etudiant.cin}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Filière</f:facet>
+                    <h:outputText value="#{etudiant.filiere}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    <h:outputText value="#{etudiant.email}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">adresse</f:facet>
+                    <h:outputText value="#{etudiant.adresse}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Telephone</f:facet>
+                    <h:outputText value="#{etudiant.telephone}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"> Actions </f:facet>
+                    <h:commandButton type="submit"  value="Edit" action="#{AdminBean.EditPageEtud(etudiant)}" styleClass="btn btn-warning"/> |
+                    <h:commandButton value="Supprimer" action="#{AdminBean.supprimerEtud(etudiant)}" styleClass="btn btn-danger"/>
+                </h:column>
+            </h:dataTable>
+            <div align="right">
+               <h:commandButton type="submit"  value="Ajout Etudiant" action="#{AdminBean.ajoutPageEtud}" styleClass="btn btn-dark btnSpace"/>
+            </div>
+        </h:form>
+
+
+        <h:form  rendered="#{AdminBean.editFormEtud}">
+            <div class="container mt-5">
+                <h3 class="mb-4">Modifier un Etudiant</h3>
+                <h:inputHidden id="etudiantID" value="#{AdminBean.editEtudiant.id}" />
+                <div class="row mb-3">
+                    <label for="nom" class="col-sm-2 col-form-label">Nom</label>
+                    <div class="col-sm-10">
+                        <h:inputText id="nom" value="#{AdminBean.editEtudiant.nom}" class="form-control" required="true"/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
+                    <div class="col-sm-10">
+                        <h:inputText id="prenom" value="#{AdminBean.editEtudiant.prenom}" class="form-control" required="true"/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="cin" class="col-sm-2 col-form-label">CIN</label>
+                    <div class="col-sm-10">
+                        <h:inputText id="cin" value="#{AdminBean.editEtudiant.cin}" class="form-control" required="true"/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="adresse" class="col-sm-2 col-form-label">Adresse</label>
+                    <div class="col-sm-10">
+                        <h:inputText id="adresse" value="#{AdminBean.editEtudiant.adresse}" class="form-control" required="true"/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="telephone" class="col-sm-2 col-form-label">Téléphone</label>
+                    <div class="col-sm-10">
+                        <h:inputText id="telephone" value="#{AdminBean.editEtudiant.telephone}" class="form-control" required="true"/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <h:inputText id="email" value="#{AdminBean.editEtudiant.email}" class="form-control" required="true"/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="password" class="col-sm-2 col-form-label">Mot de passe</label>
+                    <div class="col-sm-10">
+                        <h:inputText id="password" value="#{AdminBean.editEtudiant.password}" class="form-control" required="true"/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="numAplogueE" class="col-sm-2 col-form-label">Numéro Aplogue</label>
+                    <div class="col-sm-10">
+                        <h:inputText id="numAplogueE" value="#{AdminBean.editEtudiant.numAplogue}" class="form-control" required="true"/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="filiere" class="col-sm-2 col-form-label">Filière</label>
+                    <div class="col-sm-10">
+                        <h:inputText id="filiere" value="#{AdminBean.editEtudiant.filiere}" class="form-control" required="true"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div align="right" class="col-sm-10 offset-sm-2">
+                        <h:commandButton value="Enregistrer" action="#{AdminBean.editetudiant()}" styleClass="btn btn-dark btnSpace"/>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+     </div>
+    </f:view>
+</h:body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+
+    <persistence-unit name="persis" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>com.example.projet_gestionecole.Model.Admin</class>
+        <class>com.example.projet_gestionecole.Model.Cours</class>
+        <class>com.example.projet_gestionecole.Model.Module</class>
+        <class>com.example.projet_gestionecole.Model.Enseignant</class>
+        <class>com.example.projet_gestionecole.Model.Etudiant</class>
+        <class>com.example.projet_gestionecole.Model.Note</class>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://mysql-18f4481-lailatimasli1-b475.a.aivencloud.com:15319/GestionEcole"/>
+            <property name="jakarta.persistence.jdbc.user" value="avnadmin"/>
+            <property name="jakarta.persistence.jdbc.password" value="AVNS_6-Css9oFG1x2foqs1xq"/>
+
+            <!-- Configuration EclipseLink -->
+            <property name="eclipselink.logging.level" value="ALL"/>
+            <property name="eclipselink.logging.parameters" value="true"/>
+
+            <!-- Configuration pour afficher les requêtes SQL -->
+            <property name="eclipselink.logging.logger" value="DefaultLogger"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+
+            <!-- Configuration pour formater les requêtes SQL -->
+            <property name="eclipselink.format.sql" value="true"/>
+
+            <!-- Configuration pour créer et recréer la base de données au démarrage -->
+            <property name="eclipselink.ddl-generation" value="none"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
