@@ -7,7 +7,6 @@
     <persistence-unit name="persis" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>com.example.projet_gestionecole.Model.Admin</class>
-        <class>com.example.projet_gestionecole.Model.Cours</class>
         <class>com.example.projet_gestionecole.Model.Module</class>
         <class>com.example.projet_gestionecole.Model.Enseignant</class>
         <class>com.example.projet_gestionecole.Model.Etudiant</class>
@@ -16,7 +15,6 @@
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://mysql-18f4481-lailatimasli1-b475.a.aivencloud.com:15319/GestionEcole"/>
             <property name="jakarta.persistence.jdbc.user" value="avnadmin"/>
-            <property name="jakarta.persistence.jdbc.password" value="AVNS_6-Css9oFG1x2foqs1xq"/>
 
             <!-- Configuration EclipseLink -->
             <property name="eclipselink.logging.level" value="ALL"/>
