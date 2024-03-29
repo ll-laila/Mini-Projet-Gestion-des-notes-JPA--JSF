@@ -47,13 +47,19 @@
                 <div class="row mb-3">
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <h:inputText id="email" value="#{AdminBean.nvEnseignant.email}" class="form-control" required="true"/>
+                        <h:inputText id="email" value="#{AdminBean.nvEnseignant.email}" class="form-control" required="true">
+                            <f:validator for="email" validatorId="em"/>
+                        </h:inputText>
                     </div>
+                    <p><h:message for="email" styleClass="text-danger"/></p>
                 </div>
                 <div class="row mb-3">
                     <label for="password" class="col-sm-2 col-form-label">Mot de passe</label>
                     <div class="col-sm-10">
-                        <h:inputSecret id="password" value="#{AdminBean.nvEnseignant.password}" class="form-control" required="true"/>
+                        <h:inputSecret id="password" value="#{AdminBean.nvEnseignant.password}" class="form-control" required="true">
+                            <f:validator for="password" validatorId="ps"/>
+                        </h:inputSecret>
+                        <p><h:message for="password" styleClass="text-danger"/></p>
                     </div>
                 </div>
                 <div class="row mb-3">

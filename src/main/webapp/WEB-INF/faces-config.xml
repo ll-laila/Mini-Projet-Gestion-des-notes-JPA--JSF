@@ -39,6 +39,11 @@
             <redirect/>
         </navigation-case>
         <navigation-case>
+            <from-outcome>InscriptionAdmin</from-outcome>
+            <to-view-id>/InscriptionAdmin.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>GestionEtudiants</from-outcome>
             <to-view-id>/pages/admin/GestionEtudiants.xhtml</to-view-id>
             <redirect/>

@@ -3,6 +3,7 @@ package com.example.projet_gestionecole.Controller;
 import com.example.projet_gestionecole.Dao.DaoImpl.AdminServiceImpl;
 import com.example.projet_gestionecole.Dao.DaoImpl.EnseignantServiceImpl;
 import com.example.projet_gestionecole.Dao.DaoImpl.EtudiantServiceImpl;
+import com.example.projet_gestionecole.Model.Admin;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.ExternalContext;
 import jakarta.faces.context.FacesContext;
@@ -10,6 +11,8 @@ import jakarta.servlet.http.HttpSession;
 
 
 public class LoginBean {
+
+    private Admin nvAdmin;
     private String email;
     private String password;
     private AdminServiceImpl adminService;
@@ -17,9 +20,18 @@ public class LoginBean {
     private EnseignantServiceImpl enseignantService;
 
     public LoginBean(){
+        this.nvAdmin = new Admin();
         adminService = new AdminServiceImpl();
         etudiantService = new EtudiantServiceImpl();
         enseignantService = new EnseignantServiceImpl();
+    }
+
+    public Admin getNvAdmin() {
+        return nvAdmin;
+    }
+
+    public void setNvAdmin(Admin nvAdmin) {
+        this.nvAdmin = nvAdmin;
     }
 
     public String getEmail() {
@@ -65,6 +77,12 @@ public class LoginBean {
             FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("username or password not correct"));
             return null ;
         }
+    }
+
+
+    public String Inscrire(){
+        this.adminService.addAdmin(nvAdmin);
+        return "Admin";
     }
 
 

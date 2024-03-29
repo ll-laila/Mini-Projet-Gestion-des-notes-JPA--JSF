@@ -6,6 +6,7 @@ import com.example.projet_gestionecole.Dao.DaoImpl.EtudiantServiceImpl;
 import com.example.projet_gestionecole.Dao.DaoImpl.ModuleServiceImpl;
 import com.example.projet_gestionecole.Dao.EnseignantService;
 import com.example.projet_gestionecole.Dao.EtudiantService;
+import com.example.projet_gestionecole.Model.Admin;
 import com.example.projet_gestionecole.Model.Enseignant;
 import com.example.projet_gestionecole.Model.Etudiant;
 import com.example.projet_gestionecole.Model.Module;

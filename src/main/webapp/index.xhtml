@@ -25,14 +25,14 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Mot de passe : </label>
-                <h:inputSecret value="#{LoginBean.password}"  id="password" class="form-control" >
-                    <f:validator for="password" validatorId="ps"/>
-                </h:inputSecret>
-                <p><h:message for="password" styleClass="text-danger"/></p>
+                <h:inputSecret value="#{LoginBean.password}"  id="password" class="form-control" />
             </div>
             <h:commandButton value="Login" action="#{LoginBean.login}" class="btn btn-primary" />
             <h:messages/>
         </h:form>
+            <div align="right">
+                <h:link outcome="InscriptionAdmin.xhtml" styleClass="btn btn-info" value="Inscription Admin"/>
+            </div>
         </div>
     </f:view>
 </h:body>
